@@ -14,7 +14,7 @@
         - https://youtu.be/ioe1eeEWU0I
         - https://talbaumel.github.io/blog/softmax/
     - 수식
-    - 잘 되는 이유
+    - 왜 잘 되는지 이유가 궁금함
 
 ## 2. Word Vectors 2 and Word Senses
 
