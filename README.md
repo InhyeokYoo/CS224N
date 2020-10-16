@@ -19,9 +19,9 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 ## Week 1 (10.13.20)
 
-### 1. Introduction and Word Vectors, 유인혁
+### 1. [Introduction and Word Vectors](/week1/week1.md) (유인혁)
 
-### 2. Word Vectors 2 and Word Senses, 유인혁
+### 2. [Word Vectors 2 and Word Senses](/week1/week1.md) (유인혁)
 
 ## Week 2 (10.21.20)
 
