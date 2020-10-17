@@ -17,6 +17,12 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 # 기록 (10.15.20 - )
 
+양식은 다음과 같이 써주세요.
+- 기록에 link남겨주세요.
+- 날짜도 남겨주세요
+- 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고, 궁금증이 해결되면 issue를 닫겠습니다.
+- 업데이트 하기 전에 fetch/pull 부탁드립니다.
+- 추가적인 resource/material이 필요할지도 몰라 폴더로 만들었는데, markdown 내에 link/screenshot 등으로 남기면 될 것 같기도 하네요. 이 부분은 추후에 말씀나눠봐요.
 
 ## Week 1 (10.13.20)
 
@@ -31,32 +37,43 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 ### 4. [Backpropagation and Computation Graphs](/week2)
 
-
-## 예정목록
+## Week 3 (진행 중)
 
 ### 5. Linguistic Structure: Dependency Parsing
 
-### 6. The probability of a sentence? Recurrent Neural Networks and Language Models 
+### 6. The probability of a sentence? Recurrent Neural Networks and Language Models
+
+## Week 4 (진행 중)
 
 ### 7. Vanishing Gradients and Fancy RNNs
 
-### 8. Machine Translation, Seq2Seq and Attention 
+### 8. Machine Translation, Seq2Seq and Attention
+
+## Week 5 (진행 중)
 
 ### 9. Practical Tips for Final Projects 
 
 ### 10. Question Answering and the Default Final Project
 
+## Week 6 (진행 중)
+
 ### 11. ConvNets for NLP 
 
-### 12. Information from parts of words: Subword Models 
+### 12. Information from parts of words: Subword Models
+
+## Week 7 (진행 중)
 
 ### 13. Modeling contexts of use: Contextual Representations and Pretraining 
 
 ### 14. Transformers and Self-Attention For Generative Models
 
+## Week 8 (진행 중)
+
 ### 15. Natural Language Generation 
 
 ### 16. Reference in Language and Coreference Resolution
+
+## Week 9 (진행 중)
 
 ### 17. Multitask Learning: A general model for NLP?
 
