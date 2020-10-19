@@ -13,7 +13,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 | 이름 | repo |
 | :---: | :---: |
 |유인혁|[https://github.com/InhyeokYoo](https://github.com/InhyeokYoo) |
-|장건희|(https://github.com/ckrdkg)|
+|장건희|https://github.com/ckrdkg|
 |최슬기|[github](https://github.com/abooundev)  |
 
 
