@@ -2,7 +2,10 @@
 
 CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다. 
 
-[강의 링크](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/)
+* stanford CS224N: NLP with Deep Learning | Winter 2019 | 
+  * [youtube](https://youtu.be/8rXD5-xhemo)
+  * [schedule](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/)
+
 
 # Participant (alphabetical order)
 
@@ -10,7 +13,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 | :---: | :---: |
 |유인혁|[https://github.com/InhyeokYoo](https://github.com/InhyeokYoo) |
 |장건희| |
-|최슬기| |
+|최슬기|[github](https://github.com/abooundev)  |
 
 
 
