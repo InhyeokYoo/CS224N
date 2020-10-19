@@ -2,9 +2,10 @@
 
 CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다. 
 
-* stanford CS224N: NLP with Deep Learning | Winter 2019 | 
+* Stanford cs224n: Natural Language Processing with Deep Learning (**Winter 2019**)
   * [youtube](https://youtu.be/8rXD5-xhemo)
-  * [schedule](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/)
+  * [syllabus, Winter 2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/) // youtube version (기록 목차)
+  * [syllabus, Winter 2020](http://web.stanford.edu/class/cs224n/)
 
 
 # Participant (alphabetical order)
