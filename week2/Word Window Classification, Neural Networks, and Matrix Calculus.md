@@ -81,7 +81,7 @@ Whitening
 데이터를 상관관계가 없고 분산을 1로 만드는 것
 
 
-###Momentum Updates
+Momentum Updates
 
 Optimizer 비교
 
