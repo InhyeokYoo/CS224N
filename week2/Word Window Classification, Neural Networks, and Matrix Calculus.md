@@ -57,15 +57,34 @@ W14(1)은 오직 z1(2)와 a1(2)에만 영향을 끼친다.
 8. Neuron Units
 ![image](https://user-images.githubusercontent.com/34912004/96460039-c3225e00-125d-11eb-8ae6-71f15b7c84a6.png)
 Sigmoid (0~1)
+
 ![image](https://user-images.githubusercontent.com/34912004/96460327-0f6d9e00-125e-11eb-831c-35430811e03f.png)
 tanh (-1~1)
+
 ![image](https://user-images.githubusercontent.com/34912004/96460378-18f70600-125e-11eb-9828-409a5d333b3b.png)
 ReLU (max(z,0)
 
 9. Data Preprocessing
 데이터에 대한 기본적인 전처리 수행
+
 Mean Subtraction
+데이터에 모든 feature에서 그 평균을 빼는 것
+데이터 X -= np.mean(X)
+
+Normalization
+![image](https://user-images.githubusercontent.com/34912004/96583927-6fc11600-1318-11eb-870e-98c586d60437.png)
+
+데이터의 분포를 비슷한 크기로 스케일링하는 것
+
+Whitening
+
+데이터를 상관관계가 없고 분산을 1로 만드는 것
 
 
-................
+###Momentum Updates
+
+Optimizer 비교
+
+![image](https://user-images.githubusercontent.com/34912004/96590824-71430c00-1321-11eb-9fc8-c592feece477.png)
+
 
