@@ -26,7 +26,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 
 
-# 기록 (10.15.20 - )
+# 기록 (20.10.13 - )
 
 양식은 다음과 같이 써주세요.
 - 기록에 link남겨주세요.
@@ -35,20 +35,20 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
 - 추가적인 resource/material이 필요할지도 몰라 폴더로 만들었는데, markdown 내에 link/screenshot 등으로 남기면 될 것 같기도 하네요. 이 부분은 추후에 말씀나눠봐요.
 
-## Week 1 (10.13.20)
+## Week 1 (2020.10.13)
 
 ### 1. [Introduction and Word Vectors](/week1) (유인혁)
 
 ### 2. [Word Vectors 2 and Word Senses](/week1) (유인혁)
 
 
-## Week 2 (10.21.20)
+## Week 2 (2020.10.21)
 
 ### 3. [Word Window Classification, Neural Networks, and Matrix Calculus](/week2)
 
 ### 4. [Backpropagation and Computation Graphs](/week2)
 
-## Week 3 (진행 중)
+## Week 3 (2020.10.28)
 
 ### 5. Linguistic Structure: Dependency Parsing
 
