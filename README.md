@@ -20,25 +20,26 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 | 이름 | repo |
 | :---: | :---: |
 |유인혁|[https://github.com/InhyeokYoo](https://github.com/InhyeokYoo) |
-|장건희|https://github.com/ckrdkg|
+|장건희|https://github.com/ckrdkg |
 |최슬기|[github](https://github.com/abooundev)  |
 
 
 # 기록 (20.10.13 - )
 
-양식은 다음과 같이 써주세요.
-- 기록에 link/날짜 등을 남겨주세요.
-  - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자의 몫
+💡 **Importatn Note:**
+- 기준은 목차입니다.
+  - 수업이 너무 길어 **1주 + 2주 조금**으로 영상/slide가 구성되어 있어도, 2주차를 직접 보셔야 합니다. 
+- readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자 부탁드립니다.
 - 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고 label을 달아주세요.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
 - 양식의 통일 부탁드립니다 (markdown 추천)
-  - 추후 협의
+  - format 추후 협의
   - naming convention
     - 강의 이름으로 된 파일을 올릴 것
     - 파일 이름 공백은 `-`로 대체하여 올릴 것
     - E.g. *Introduction-and-Word-Vectors.md*
 
-📜**강의 목차:**  
+📑 **강의 목차:**  
 | Weeks | 2020 | 2019 | 일치여부 | 발표자 | 발표날짜 | 링크 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 1 |  Introduction and Word Vectors/Gensim word vectors example |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
@@ -46,7 +47,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
 4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
 5 | Linguistic Structure: Dependency Parsing  |  | O | 
-6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/The-probability-of-a-sentence-Recurrent-Neural-Networks-and-Language-Models.md)
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/The-probability-of-a-sentence-Recurrent-Neural-Networks-and-Language-Models.md) |
 
 ## Week 3 (2020.10.28)
 
