@@ -60,8 +60,8 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
 3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
 4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
-5 | Linguistic Structure: Dependency Parsing  |  | O | 
-6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/The-probability-of-a-sentence-Recurrent-Neural-Networks-and-Language-Models.md) |
+5 | Linguistic Structure: Dependency Parsing  |  | O | **유인혁** | 2020.10.28 | [Link](/week3/The-probability-of-a-sentence-Recurrent-Neural-Networks-and-Language-Models.md) |
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **최슬기**  | 2020.10.28 |  Link |
 
 ## Week 3 (2020.10.28)
 
