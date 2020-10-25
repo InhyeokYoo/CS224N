@@ -9,7 +9,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 - 📚**References:**
   - Dan Jurafsky and James H. Martin. [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
-  - Jacob Eisenstein. [Natural Language Processing](src/A Primer on Neural Network Modelsfor Natural Language Processing.pdf)
+  - Jacob Eisenstein. [Natural Language Processing](/src/A Primer on Neural Network Modelsfor Natural Language Processing.pdf)
   - Yoav Goldberg. [A Primer on Neural Network Models for Natural Language Processing](http://u.cs.biu.ac.il/~yogo/nnlp.pdf)
   - Ian Goodfellow, Yoshua Bengio, and Aaron Courville. [Deep Learning](http://www.deeplearningbook.org/)
   - PRML 한국어 번역/정리: http://norman3.github.io/prml/
