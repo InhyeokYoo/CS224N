@@ -24,40 +24,25 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 |최슬기|[github](https://github.com/abooundev)  |
 
 
-
-
 # 기록 (20.10.13 - )
 
 양식은 다음과 같이 써주세요.
-- 기록에 link남겨주세요.
-- 날짜도 남겨주세요
-- 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고, 궁금증이 해결되면 issue를 닫겠습니다.
+- 기록에 link/날짜 등을 남겨주세요.
+  - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자의 몫.
+- 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고 label을 달아주세요.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
-- 추가적인 resource/material이 필요할지도 몰라 폴더로 만들었는데, markdown 내에 link/screenshot 등으로 남기면 될 것 같기도 하네요. 이 부분은 추후에 말씀나눠봐요.
-
+- 양식의 통일 부탁드립니다 (markdown 추천)
+  - 추후 협의
 
 📜**강의 목차:**  
-| Weeks | 2020 | 2019 | 일치여부 | 발표자 | 링크 |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-1 |  Introduction and Word Vectors/Gensim word vectors example |  | O | **유인혁** | [Link](/week1) |
-2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | [Link](/week1) |
-3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | Link |
-4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | Link |
+| Weeks | 2020 | 2019 | 일치여부 | 발표자 | 발표날짜 | 링크 |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+1 |  Introduction and Word Vectors/Gensim word vectors example |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
+2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
+3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
+4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
 5 | Linguistic Structure: Dependency Parsing  |  | O | 
-6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **유인혁** |  [Link](/week3/)
-
-## Week 1 (2020.10.13)
-
-### 1. [Introduction and Word Vectors]
-
-### 2. [Word Vectors 2 and Word Senses](/week1) (유인혁)
-
-
-## Week 2 (2020.10.21)
-
-### 3. [Word Window Classification, Neural Networks, and Matrix Calculus](/week2)
-
-### 4. [Backpropagation and Computation Graphs](/week2)
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/)
 
 ## Week 3 (2020.10.28)
 
