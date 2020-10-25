@@ -26,6 +26,9 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 # 기록 (20.10.13 - )
 
+![계획표](https://user-images.githubusercontent.com/47516855/97106526-8b0b9700-1705-11eb-8503-916730dcc116.png)
+
+
 💡 **Importatn Note:**
 - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자 부탁드립니다.
 - 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고 label을 달아주세요.
