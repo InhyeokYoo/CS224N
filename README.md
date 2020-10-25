@@ -27,8 +27,6 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 # 기록 (20.10.13 - )
 
 💡 **Importatn Note:**
-- 기준은 목차입니다.
-  - 수업이 너무 길어 **1주 + 2주 조금**으로 영상/slide가 구성되어 있어도, 2주차를 직접 보셔야 합니다. 
 - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자 부탁드립니다.
 - 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고 label을 달아주세요.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
@@ -38,6 +36,19 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
     - 강의 이름으로 된 파일을 올릴 것
     - 파일 이름 공백은 `-`로 대체하여 올릴 것
     - E.g. *Introduction-and-Word-Vectors.md*
+- 수식 남기는 방법:
+  - `<img src="https://render.githubusercontent.com/render/math?math={w_1, ..., w_m}">`에서 `math=`이후에 작성.
+  - 결과: <img src="https://render.githubusercontent.com/render/math?math={w_1, ..., w_m}">
+- Note이쁘게 만드는 방법:
+
+  ```markdown
+  | :exclamation:  This is very important   |
+  |-----------------------------------------|
+  ```
+  - 결과
+
+    | :exclamation:  This is very important   |
+    |-----------------------------------------|
 
 📑 **강의 목차:**  
 | Weeks | 2020 | 2019 | 일치여부 | 발표자 | 발표날짜 | 링크 |
