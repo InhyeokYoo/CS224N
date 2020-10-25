@@ -2,17 +2,18 @@
 
 CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다. 
 
-* Stanford cs224n: Natural Language Processing with Deep Learning (**Winter 2019**)
+- Stanford cs224n: Natural Language Processing with Deep Learning (**Winter 2019**)
   * [youtube](https://youtu.be/8rXD5-xhemo)
   * [syllabus, Winter 2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/) // youtube version (기록 목차)
   * [syllabus, Winter 2020](http://web.stanford.edu/class/cs224n/)
 
-- References
+- 📚**References:**
   - Dan Jurafsky and James H. Martin. [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
-  - Jacob Eisenstein. [Natural Language Processing](https://github.com/jacobeisenstein/gt-nlp-class/blob/master/notes/eisenstein-nlp-notes.pdf)
+  - Jacob Eisenstein. [Natural Language Processing](src/A Primer on Neural Network Modelsfor Natural Language Processing.pdf)
   - Yoav Goldberg. [A Primer on Neural Network Models for Natural Language Processing](http://u.cs.biu.ac.il/~yogo/nnlp.pdf)
   - Ian Goodfellow, Yoshua Bengio, and Aaron Courville. [Deep Learning](http://www.deeplearningbook.org/)
-  - 
+  - PRML 한국어 번역/정리: http://norman3.github.io/prml/
+
 
 
 # Participant (alphabetical order)
