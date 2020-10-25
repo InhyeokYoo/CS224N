@@ -7,13 +7,12 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
   * [syllabus, Winter 2019](https://web.stanford.edu/class/archive/cs/cs224n/cs224n.1194/) // youtube version (기록 목차)
   * [syllabus, Winter 2020](http://web.stanford.edu/class/cs224n/)
 
-- 📚**References:**
+- 📚 **References:**
   - Dan Jurafsky and James H. Martin. [Speech and Language Processing (3rd ed. draft)](https://web.stanford.edu/~jurafsky/slp3/)
   - Jacob Eisenstein. [Natural Language Processing](/src/eisenstein-nlp-notes.pdf)
   - Yoav Goldberg. [A Primer on Neural Network Models for Natural Language Processing](/src/A-Primer-on-Neural-Network-Models-for-Natural-Language-Processing.pdf)
   - Ian Goodfellow, Yoshua Bengio, and Aaron Courville. [Deep Learning](http://www.deeplearningbook.org/)
   - PRML 한국어 번역/정리: http://norman3.github.io/prml/
-
 
 
 # Participant (alphabetical order)
@@ -36,9 +35,20 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
 - 추가적인 resource/material이 필요할지도 몰라 폴더로 만들었는데, markdown 내에 link/screenshot 등으로 남기면 될 것 같기도 하네요. 이 부분은 추후에 말씀나눠봐요.
 
+
+📜**강의 목차:**  
+| Weeks | 2020 | 2019 | 일치여부 | 발표자 | 링크 |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+1 |  Introduction and Word Vectors/Gensim word vectors example |  | O | **유인혁** | [Link](/week1) |
+2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | [Link](/week1) |
+3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | Link |
+4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | Link |
+5 | Linguistic Structure: Dependency Parsing  |  | O | 
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **유인혁** |  [Link](/week3/)
+
 ## Week 1 (2020.10.13)
 
-### 1. [Introduction and Word Vectors](/week1) (유인혁)
+### 1. [Introduction and Word Vectors]
 
 ### 2. [Word Vectors 2 and Word Senses](/week1) (유인혁)
 
