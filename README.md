@@ -28,11 +28,15 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 
 양식은 다음과 같이 써주세요.
 - 기록에 link/날짜 등을 남겨주세요.
-  - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자의 몫.
+  - readme에 대한 관리는 제가 기본적으로 하겠지만, 각자의 작업물을 push하고 관리하는 건 각자의 몫
 - 매주 스터디에서 나온 질문/궁금증 등은 issue로 남기고 label을 달아주세요.
 - 업데이트 하기 전에 fetch/pull 부탁드립니다.
 - 양식의 통일 부탁드립니다 (markdown 추천)
   - 추후 협의
+  - naming convention
+    - 강의 이름으로 된 파일을 올릴 것
+    - 파일 이름 공백은 `-`로 대체하여 올릴 것
+    - E.g. *Introduction-and-Word-Vectors.md*
 
 📜**강의 목차:**  
 | Weeks | 2020 | 2019 | 일치여부 | 발표자 | 발표날짜 | 링크 |
@@ -42,7 +46,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
 4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
 5 | Linguistic Structure: Dependency Parsing  |  | O | 
-6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/)
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O |  **유인혁** | 2020.10.28 |  [Link](/week3/The-probability-of-a-sentence-Recurrent-Neural-Networks-and-Language-Models.md)
 
 ## Week 3 (2020.10.28)
 
