@@ -54,54 +54,25 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
     |-----------------------------------------|
 
 📑 **강의 목차:**  
-| Weeks | 2020 | 2019 | 일치여부 | 발표자 | 발표날짜 | 링크 |
+| Weeks | 2019 | 2020 | 일치여부 | 발표자 | 발표날짜 | 링크 |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 1 |  Introduction and Word Vectors/Gensim word vectors example |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
 2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
-3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
-4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
+3 | Word Window Classification, Neural Networks, and Matrix Calculus  | Word Window Classification, Neural Networks, and **PyTorch** | X |  **최슬기** | 2020.10.21 | Link |
+4 | Backpropagation and **Computation Graphs** | Matrix Calculus and Backpropagation | X |  **장건희** | 2020.10.21 | | Link |
 5 | Linguistic Structure: Dependency Parsing  |  | O | **유인혁** | 2020.11.01 | [Link](/week3/Linguistic-Structure-Dependency-Parsing.md) |
 6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **최슬기**  | 2020.11.01 |  Link |
 7 | Vanishing Gradients and Fancy RNNs | | O | **유인혁**  | 2020.11.04 |  [Link](/) |
 8 | Machine Translation, Seq2Seq and Attention | | O | **장건희**  | 2020.11.04 |  [Link](/) |
-
-
-## Week 4 (진행 중)
-
-### 7. 
-
-### 8. 
-
-## Week 5 (진행 중)
-
-### 9. Practical Tips for Final Projects 
-
-### 10. Question Answering and the Default Final Project
-
-## Week 6 (진행 중)
-
-### 11. ConvNets for NLP 
-
-### 12. Information from parts of words: Subword Models
-
-## Week 7 (진행 중)
-
-### 13. Modeling contexts of use: Contextual Representations and Pretraining 
-
-### 14. Transformers and Self-Attention For Generative Models
-
-## Week 8 (진행 중)
-
-### 15. Natural Language Generation 
-
-### 16. Reference in Language and Coreference Resolution
-
-## Week 9 (진행 중)
-
-### 17. Multitask Learning: A general model for NLP?
-
-### 18. Constituency Parsing and Tree Recursive Neural Networks 
-
-### 19. Future of NLP + Deep Learning 
-
-
+9 | Practical Tips for Final Projects | | O | **장건희**  | 2020.11.11 |  [Link](/) |
+10 | Question Answering and the Default Final Project | Question Answering, the Default Final Project, **and an introduction to Transformer architectures** | X | **최슬기**  | 2020.11.11 |  [Link](/) |
+11 | ConvNets for NLP |  | O | **최슬기**  | 2020.11.18 |  [Link](/) |
+12 | Information from parts of words: Subword Models | | O | **유인혁**  | 2020.11.18 |  [Link](/) |
+13 | Modeling contexts of use: Contextual Representations and Pretraining | Contextual Word Representations: BERT (guest lecture by Jacob Devlin) | X | **유인혁**  | 2020.11.25 |  [Link](/) |
+14 | Transformers and Self-Attention For Generative Models | Modeling contexts of use: Contextual Representations and Pretraining. ELMo and BERT | X | **장건희**  | 2020.11.25 |  [Link](/) |
+15 | Natural Language Generation | | O | **장건희**  | 2020.12.02 |  [Link](/) |
+16 | Reference in Language and Coreference Resolution | | O | **최슬기**  | 2020.12.02 |  [Link](/) |
+17 | Multitask Learning: A general model for NLP? (guest lecture by Richard Socher) | Fairness and Inclusion in AI (guest lecture by Vinodkumar Prabhakaran) | X | **최슬기**  | 2020.12.02 |  [Link](/) |
+18 | Constituency Parsing and Tree Recursive Neural Networks  | | O | **유인혁**  | 2020.12.02 |  [Link](/) |
+19 | Safety, Bias, and Fairness (guest lecture by Margaret Mitchell) | Recent Advances in Low Resource Machine Translation (guest lecture by Marc'Aurelio Ranzato) | O | **유인혁**  | 2020.12.09 |  [Link](/) |
+20 | Future of NLP + Deep Learning   | Analysis and Interpretability of Neural NLP | O | **장건희**  | 2020.12.09 |  [Link](/) |
