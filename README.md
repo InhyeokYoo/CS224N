@@ -60,20 +60,17 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 2 | Word Vectors 2 and Word Senses |  | O | **유인혁** | 2020.10.13 | [Link](/week1) |
 3 | Word Window Classification, Neural Networks, and **PyTorch**  | Word Window Classification, Neural Networks, and Matrix Calculus | X |  **최슬기** | 2020.10.21 | Link |
 4 | Matrix Calculus and Backpropagation | Backpropagation and **Computation Graphs** | X |  **장건희** | 2020.10.21 | 2020.10.28 | Link |
-5 | Linguistic Structure: Dependency Parsing  |  | O | **유인혁** | 2020.10.28 | [Link](/week3/Linguistic-Structure-Dependency-Parsing.md) |
-6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **최슬기**  | 2020.10.28 |  Link |
+5 | Linguistic Structure: Dependency Parsing  |  | O | **유인혁** | 2020.11.01 | [Link](/week3/Linguistic-Structure-Dependency-Parsing.md) |
+6 | The probability of a sentence? Recurrent Neural Networks and Language Models | | O | **최슬기**  | 2020.11.01 |  Link |
+7 | Vanishing Gradients and Fancy RNNs | | O | **유인혁**  | 2020.11.04 |  [Link](/) |
+8 | Machine Translation, Seq2Seq and Attention | | O | **장건희**  | 2020.11.04 |  [Link](/) |
 
-## Week 3 (2020.10.28)
-
-### 5. Linguistic Structure: Dependency Parsing
-
-### 6. The probability of a sentence? Recurrent Neural Networks and Language Models
 
 ## Week 4 (진행 중)
 
-### 7. Vanishing Gradients and Fancy RNNs
+### 7. 
 
-### 8. Machine Translation, Seq2Seq and Attention
+### 8. 
 
 ## Week 5 (진행 중)
 
