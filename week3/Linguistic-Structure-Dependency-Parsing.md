@@ -1,4 +1,4 @@
-# Week 5: Linguistic Structure: *Dependency Parsing* (발표자: 유인혁)
+# Lecture 5: Linguistic Structure: *Dependency Parsing* (발표자: 유인혁)
 
 **Contents**:
 - Syntactic Structure
