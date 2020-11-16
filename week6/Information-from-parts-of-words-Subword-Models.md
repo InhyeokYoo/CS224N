@@ -320,6 +320,31 @@ BERT의 경우 wordpiece model의 변형을 사용하였는데, 일반적인 단
 
 # 4. Hybrid character and word level models
 
+이제 word-level과 character-level 둘 다 이용하는 hybrid architecture를 살펴보자. 앞선 purely character level 과는 다르게, 대부분의 작업을 word-level로 하되, 필요시에만 character를 쓰는 것이다.
 
+![image](https://user-images.githubusercontent.com/47516855/99250637-5a73d480-284f-11eb-9e17-ec334ba3f120.png)
+
+
+위 그림은 이 아이디어를 구현한 모델로, 일반적인 seq2seq with LSTM과 같다. 이 모델은 16000개의 단어로 학습시켜서 자주 등장하는 common word에 대해서는 그냥 word representation을 쓰고, vocab에 있지 않은 rare word에 대해서는 character-level LSTM을 사용한다.
+
+![image](https://user-images.githubusercontent.com/47516855/99251029-00bfda00-2850-11eb-8a80-a325a9e4532f.png)
+
+NMT는 beam serach를 사용하기 때문에, 이 구조에서도 beam search를 사용한다. 한 가지 재미있는 것은 chracter-level에 대해서도 beam search를 한다는 것.
+
+이를 통해 2015년 WMT에서 SOTA를 달성하였다.
+
+![image](https://user-images.githubusercontent.com/47516855/99251888-6e203a80-2851-11eb-8f40-1fe95b84c53e.png)
+
+그러나 Manning교수는 언급하길 character-level에 비해 갖는 약점은 character를 generate하는 부분이 second-level이기 때문이라고 한다. Purely character level model의 경우 character sequence를 conditioning context로 효과적으로 활용 가능한 반면, 이 경우 word level의 context가 힘을 발휘하기 어렵다는 것이다.
 
 # 5. fastText
+
+이러한 character level 접근법은 word embedding에도 적용할 수가 있다. Word2vec과 동일한 objective를 사용하지만, chracter를 사용하여 학습한다. 매우 빠르고, 희귀 단어와 morphology가 많은 단어에 잘 동작한다.
+
+![image](https://user-images.githubusercontent.com/47516855/99254073-23a0bd00-2855-11eb-8789-d986922620be.png)
+
+다음과 같이 where라는 단어가 있을 때, 특정 n-gram을 통해서 이를 n-gram의 집합으로 나타낸다. 이는 앞서 말한 phoneme과도 같다. 이를 원래의 단어와 함께 묶어서 center word와 dot product를 계산하여 socring function을 계산한다. 이후로는 word2vec과 같다. 수업에서는 n-gram의 집합을 center word로 썼다고 하는데, 실제 논문에선 반대로 나와 있다.
+
+이렇게 모든 n-gram을 다 표현하게 되면 memory requirement가 커지므로, hashing trick을 쓸 수 있을 것이다.
+
+
