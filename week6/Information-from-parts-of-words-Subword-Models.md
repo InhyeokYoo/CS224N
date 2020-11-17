@@ -1,5 +1,19 @@
 # Lecture 12: Information from parts of words: Subword Models (발표자: 유인혁)
 
+**Suggested reading**:
+- [Achieving Open Vocabulary Neural Machine Translationwith Hybrid Word-Character Model](https://arxiv.org/pdf/1604.00788.pdf)
+- [Revisiting Character-Based Neural Machine Translationwith Capacity and Compression](https://arxiv.org/pdf/1808.09943.pdf) **2020 only**
+
+위 둘은 lecture에서 제안하고 있는 material이다. 강의 중에도 소개가 된다.
+
+**Additional reading**:
+- [Subword-level Word Vector Representations for Korean](https://www.aclweb.org/anthology/P18-1226.pdf)
+- [Rich Character-Level Information for Korean MorphologicalAnalysis and Part-of-Speech Tagging](https://www.aclweb.org/anthology/C18-1210.pdf)
+
+위는 내가 직접 찾은 material이다. 본 강의에서는 우리가 알던 word-level이 아닌 character-level model을 다루게 되는데, 초성+중성+종성의 구조가 이와 어쩌면 잘 어울린다는 생각이 들었다. 한국인이라면 반드시 알아야 하기도 할거고...
+
+
+
 **Lecture Plan**
 
 본 시간에는 neural network관점에서 봤을 때 새로운 것은 없고, 매우 쉬울 것이다. 이 강의를 처음 계획했던 2014-2015년 경에는 NLP에 대한 모든 딥 러닝 모델이 단어 단위로 동작했다고 한다. 따라서 word vector로 출발하여 RNN같은 것들에 집어넣는게 매우 당연했다. 그러나 최근 3년 간 엄청나게 많고 새로운 것들이 튀어나왔고, 이 중 몇 몇은 매우 영향력 있는 모델이 되었다. 
