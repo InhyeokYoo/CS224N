@@ -1,18 +1,16 @@
 # Lecture 12: Information from parts of words: Subword Models (발표자: 유인혁)
 
-**Suggested reading**:
+**Suggested readings**:
 - [Achieving Open Vocabulary Neural Machine Translationwith Hybrid Word-Character Model](https://arxiv.org/pdf/1604.00788.pdf)
 - [Revisiting Character-Based Neural Machine Translationwith Capacity and Compression](https://arxiv.org/pdf/1808.09943.pdf) **2020 only**
 
 위 둘은 lecture에서 제안하고 있는 material이다. 강의 중에도 소개가 된다.
 
-**Additional reading**:
+**Additional readings**:
 - [Subword-level Word Vector Representations for Korean](https://www.aclweb.org/anthology/P18-1226.pdf)
 - [Rich Character-Level Information for Korean MorphologicalAnalysis and Part-of-Speech Tagging](https://www.aclweb.org/anthology/C18-1210.pdf)
 
-위는 내가 직접 찾은 material이다. 본 강의에서는 우리가 알던 word-level이 아닌 character-level model을 다루게 되는데, 초성+중성+종성의 구조가 이와 어쩌면 잘 어울린다는 생각이 들었다. 한국인이라면 반드시 알아야 하기도 할거고...
-
-
+위는 내가 직접 찾은 material이다. 본 강의에서는 우리가 알던 word-level이 아닌 character-level model을 다루게 되는데, 초성+중성+종성의 구조가 이와 어쩌면 잘 어울린다는 생각이 들었다. 또한, 한국어에는 어떻게 적용할 수 있는지가 궁금하기도 하고.
 
 **Lecture Plan**
 
@@ -37,7 +35,7 @@
 
 우선 언어의 lower level unit에서 언어의 구조에 대해 배우는 것 부터 시작해보자.
 
-언어학에서 좀 덜 중요한 것 (bottom of the totem pole)부터 보자면 *phonetic (음성학)* <sup>1</sup>이 있다. 이는 사람 말소리의 생리학과 소리를 이해하는 것으로, 음성의 물리적/생리적 측면을 연구하는 것이다.
+언어학에서 좀 덜 중요한 것 (bottom of the totem pole)부터 보자면 *phonetic (음성학)* 이 있다. 이는 사람 말소리의 생리학과 소리를 이해하는 것으로, 음성의 물리적/생리적 측면을 연구하는 것이다.
 
 > *phonetic*: 말소리의 실체에 물리적으로 접근하여 기술하고 분석하는 분야로, 물리적인 말소리의 생성과 음향 및 인지에 초점을 맞춘다. 음성학은 말소리를 만들기 위해서 움직이는 기관에 대한 관찰과 그것에 토대를 둔 말소리의 분류 및 만들어진 말소리의 음파, 그 음파가 귀로 들어가 뇌로 전달되는 과정 등을 다루는 분야로 인간이 말을 할 때 이용하는 소리를 물리적으로 분석한다. [출처: Ratsgo blog](https://ratsgo.github.io/speechbook/docs/phonetics)
 
@@ -77,7 +75,7 @@
 
 ![image](https://user-images.githubusercontent.com/47516855/99147394-025c9700-26c4-11eb-8bc2-ba7b064dc44b.png)
 
-프랑스어의 경우 *clitic(전어)*, 대명사, *agreement(일치)*가 분리되어 있지만, 하나의 단어처럼 쓰인다. 반면, 아랍어에서는 함께 붙어서 하나의 단어로 쓰이지만, 실제로는 4개의 단어가 되야 한다.
+프랑스어의 경우 *clitic(전어)*, 대명사, *agreement(일치)* 가 분리되어 있지만, 하나의 단어처럼 쓰인다. 반면, 아랍어에서는 함께 붙어서 하나의 단어로 쓰이지만, 실제로는 4개의 단어가 되야 한다.
 
 또 다른 예시로는 복합명사(compound noun)가 있다. 영어에서는 복합명사를 띄어쓰기로 나누는게 기본이지만, whiteboard, behave, highschool처럼 붙여쓰는 경우도 있다. 그러나 독일어는 이 모두를 붙여서 쓴다.
 
@@ -93,10 +91,9 @@
 
 word level의 문제점 중 하나는 큰 단어 사전을 다뤄야 한다는 점이다. 영어의 경우에는 다른 언어보다 문제가 더 많은데, 터키어로서는 한 단어로 표현할 수 있는 것을 영어로는 여러 글자에 걸쳐서 표현해야 한다.
 
-번역을 할 때는 사람 이름처럼 고유명사도 신경을 써줘야 한다. 출발어의 발음구조와 유사한 발음을 도착어에서 찾아줘야 하고, 이를 위해서는 기본적으로 letter level에서 진행하는게 더 편할 것이다.
+번역을 할 때는 사람 이름처럼 고유명사도 신경을 써줘야 한다. 출발어의 발음구조와 유사한 발음을 도착어에서 찾아줘야 하고, 이를 위해서는 기본적으로 letter level에서 진행하는게 더 편할 것이다. (Cristopher -> 크리스토퍼)
 
-word level보다 더 작은 수준에서 모델링하는 다른 이유로는 slang과 abbreviation같이 social media로 인한 영향이 있다. 예시와 같이 단어를 늘려쓰기도 하고,  
-이렇게 될 경우 word level로 진행할 경우 아주 큰 문제가 생길 것이고, 사람이 하는 것과도 굉장히 차이가 난다.
+word level보다 더 작은 수준에서 모델링하는 다른 이유로는 slang과 abbreviation같이 social media로 인한 영향이 있다. 예시와 같이 단어를 늘려쓰거나 축약어로 표현하는 경우가 잦다. 이런 케이스에 대해 word level로 진행한다면 아주 큰 문제가 생길 것이고, 사람이 하는 것과도 굉장히 차이가 난다.
 
 ## Character-Level Models
 
@@ -104,28 +101,30 @@ word level보다 더 작은 수준에서 모델링하는 다른 이유로는 sla
 
 **1. Word embeddings can be composed from chracter embeddings**
 
-기본적으로는 여전히 model을 단어 위에다 올리는 것이다. 그러나 어떠한 character sequence에도 word representation을 만드는 것이 목적이다. 따라서 character의 조합을 통해 unknown word에 대해 embedidng을 생성하고, 비슷한 character의 조합은 비슷한 embedding을 갖게 된다. 이로 인해 OOV문제가 없어진다.
+기본적으로는 여전히 model을 단어 위에다 올린다. 그러나 어떠한 character sequence가 들어오더라도 word representation을 만드는 것이 목적이다. 따라서 character의 조합을 통해 unknown word에 대해 embedidng을 생성하고, 비슷한 character의 조합은 비슷한 embedding을 갖게 된다. 이로 인해 OOV문제가 없어진다.
 
 **2. Connected langauge can be processed as characters**
 
 앞선 단어들은 신경쓰지말고, 모든 language processing을 그냥 sequence of character로 진행하는 것이다.
 
-그리고 이 둘 모두 큰 성공을 거뒀다. Manning 교수는 처음에 이런 모델이 제안되었을 때 안될 것이라고 예상했다고 한다. word에는 각자의 의미가 있기 때문에 word2vec같은게 가능했고, 실제로 이로 인해 이들의 의미를 파악하는게 가능했다. 그러나 단어 하나하나를 본다는 것 자체가 의심스러웠다고 한다. 하지만 이는 empirical하게 증명됐다. 여기서 근본적으로 깨달아야 할 점은 글자 자체가 의미가 없긴 하지만, RNN, CNN같은 모델은 엄청나게 많은 파라미터가 있고, 이 파라미터 덕분에 multi-letter의 그룹으로부터 의미를 representation할 수 있게 된다는 것이다.
+그리고 이 둘 모두 큰 성공을 거뒀다. Manning 교수는 처음에 이런 모델이 제안되었을 때 안될 것이라고 예상했다고 한다. word에는 각자의 의미가 있기 때문에 word2vec같은게 가능했고, 실제로 이로 인해 이들의 의미를 파악하는게 가능했다. 그러나 단어 내 character를 하나하나 본다는 것 자체가 의심스러웠다고 한다. 하지만 이는 empirical하게 증명됐다. 여기서 근본적으로 깨달아야 할 점은 character 자체가 의미가 있는건 아니지만 RNN, CNN같은 모델은 엄청나게 많은 파라미터가 있고 이 파라미터 덕분에 multi-letter의 그룹으로부터 의미를 representation할 수 있게 된다는 것이다.
 
 ## Below the word: Writing systems
 
-문자 체계에서 character를 사용할 때 주의할 점을 생각해보자. 만약 우리가 언어학자라면 우리는 소리를 가장 최우선으로 생각하는 경향이 있을 것이다. 이러한 소리는 앞서 언급했던 phoneme이 될 것이다. 근본적으로는 딥러닝은 phoneme을 시도한 적이 전혀 없다. 전통적인 speech recognizer는 종종 phoneme을 사용하지만, 딥러닝에서는 많은 데이터를 필요로 하고, 이를 쉽게 얻는 방법은 쓰여진 형태로 얻는 것이기 때문이다. 이는 데이터 관점에서 납득할만하다. 그러나 한 가지 이상한 점은 character-level model을 구성할 때 언어의 문자 체계에 의존한다는 점이다. 그러나 인간의 문자 체계는 단순히 하나가 아니다.
+문자 체계에서 character를 사용할 때 주의할 점을 생각해보자. 만약 언어학자라면 소리를 가장 최우선으로 생각하는 경향이 있을 것이다. 여기서 **소리**라하면 앞서 언급했던 phoneme이 될 것이다. 
+
+그러나 근본적으로는 딥러닝은 phoneme을 시도한 적이 전혀 없다. 전통적인 speech recognizer는 종종 phoneme을 사용하지만, 딥러닝에서는 많은 데이터를 필요로 하고, 이를 쉽게 얻는 방법은 쓰여진 형태로 얻는 것이기 때문이다. 이는 **데이터 관점**에서 납득할만하다. 여기서 우리가 신경쓸 점은 character-level model을 구성할 때 언어의 문자 체계에 의존한다는 점이다. 그러나 인간의 문자 체계는 단순히 하나가 아니다.
 - Phonemic (maybe digraphs): 스페인어 같은 문자 체계는 phonemic해서 어떤 letter들이 특정한 소리를 갖고 있고, 그 소리를 낼 수 있다
 - Fossilized phonemic: 영어같은 경우는 철자 체계도 엉망이고 실제 소리랑도 다르지만 여전히 phonemic system이다
 - Syllabic/moraic: 반면 다양한 unit을 사용하고, character를 통해 syllable을 표현하는 경우도 있다. 한국어가 대표적
 - Ideographic (syllabic): 표의문자. 이 또한 syllabic system이지만, 실제 소리보다 글자의 수가 더 많고, 글자 하나하나가 뜻을 갖고 있다. 이 경우 morpheme이 한 character가 된다. 중국어가 대표적이다
 - Combination of the above: 일본어의 경우 일부는 moraic하고, 일부는 표의 문자를 섞어 쓴다
 
-따라서 어떤 문자냐에 따라서 어떻게 쓰는지가 달라질 것이다. character unit은 중국어에선 letter-trigram이 되서 세 개의 morepheme이 되지만, 영어 같은 경우는 T-H-O와 같은 chracter-trigram으로 아무런 의미가 없게 된다.  
+따라서 어떤 문자냐에 따라서 어떻게 쓰는지가 달라질 것이다. character unit은 중국어에선 letter-trigram이 되서 세 개의 morepheme이 되지만, 영어 같은 경우는 T-H-O와 같은 chracter-trigram으로 아무런 의미가 없게 된다.
 
 # 2. Purely character-level models
 
-우선 온전히 chracter-level만을 이용한 모델을 살펴보자. 이전 강의에서 sentence-level classification을 살펴봤었다. 이게 대표적인 purely character-level model이다. 매우 깊게 쌓은 CNN을 썼고 (Conneau, Schwenk, Lecun, Barrault. EACL 2017), 이러한 deep convolutional stack이 효과적임을 보였다.
+우선 purely chracter-level model을 살펴보자. 이전 강의에서 sentence-level classification을 살펴봤었다. 이게 대표적인 purely character-level model이다. 매우 깊게 쌓은 CNN을 썼고 (Conneau, Schwenk, Lecun, Barrault. EACL 2017), 이러한 deep convolutional stack이 효과적임을 보였다.
 
 ## Purely chracter-level NMT models
 
@@ -136,7 +135,7 @@ word level보다 더 작은 수준에서 모델링하는 다른 이유로는 sla
  
 **Thang Luong, Christopher Manning, ACL 2016**
 
-Thang Luong, Christopher Manning, ACL 2016는 영어와 체코어 WMT 2015에 대해 연구를 진행하였다. 체코어는 character level로 진행하기 좋은 언어인데, 아까 봤던 morphology로 이루어진 굉장히 긴 단어들이 많이 있기 때문이다. 따라서 이런 vocab 문제로 체코어에 대해 word-level로 진행한 모델은 좋은 성능을 내기 힘들다. 본 연구를 통해 word-level base line보다 pure character-level seq2seq NMT가 더 좋은 결과를 보였으나 너무 느리다는 단점이 있다 (3주).
+Thang Luong, Christopher Manning, ACL 2016는 영어와 체코어 WMT 2015에 대해 연구를 진행하였다. 체코어는 character level로 진행하기 좋은 언어인데, 아까 봤던 morphology로 이루어진 굉장히 긴 단어들이 많이 있기 때문이다. 따라서 이런 vocab 문제로 인해 체코어에 대해 word-level로 진행한 모델은 좋은 성능을 내기 힘들다. 본 연구를 통해 word-level base line보다 pure character-level seq2seq NMT가 더 좋은 결과를 보였으나 너무 느리다는 단점이 있다 (3 weeks for training).
 
 ![image](https://user-images.githubusercontent.com/47516855/99151193-ab16f080-26dc-11eb-9ee3-bd0bffe9c150.png)
 
@@ -146,20 +145,17 @@ Thang Luong, Christopher Manning, ACL 2016는 영어와 체코어 WMT 2015에 �
 
 **Fully Character-Level Neural Machine Translation without Explicit Segmentation**
 
-이 다음해에 Jason Lee, Kyunghyun Cho, Thomas Hoffmann, 2017는 새로운 모델을 발표했는데, 출발어의 의미와 복잡함을 더 잘 이해하려는 시도를 했다.
+이 다음해에 Jason Lee, Kyunghyun Cho, Thomas Hoffmann, 2017는 새로운 모델을 발표했는데 이들은 출발어의 의미와 복잡함을 더 잘 이해하려는 시도를 했다.
 
 ![image](https://user-images.githubusercontent.com/47516855/99151298-7ce5e080-26dd-11eb-92ae-2b62cfa56f63.png)
 
-
 인코더에선 character-level을 기반으로 4개의 convolution을 사용한 후에 highway network을 통과하였고, 그렇게 얻어진 word embedding에 대해 bidirectional GRU를 사용하여 source representation을 얻는다. 디코더는 앞서 봤던 모델과 동일하다.
-
-
 
 **Stronger character results with depth in LSTM seq2seq model**
 
 ![image](https://user-images.githubusercontent.com/47516855/99151945-10b9ab80-26e2-11eb-8167-4201535a8e39.png)
 
-다음은 Revisiting Character-Based Neural Machine Translation with Capacity and Compression. 2018.Cherry, Foster, Bapna, Firat, Macherey, Google AI는 word와 character-based model을 비교했다. English-French(좌), Czech-English(하)를 보면 큰 모델에서는 character model(blue)이 이기는 것을 볼 수 있다. 한 가지 재미있는 점은 morphological complexity에 따라 결과가 달라진다는 것이다. 체코어 같은 경우는 character-level model을 쓰는게 좋은 선택이지만, 프랑스어의 경우는 미비한 상승을 볼 수 있다.
+다음은 Revisiting Character-Based Neural Machine Translation with Capacity and Compression (Cherry, Foster, Bapna, Firat, Macherey, 2018) 이다. Google AI는 word와 character-based model을 비교했다. English-French(좌), Czech-English(하)를 보면 큰 모델에서는 character model(blue)이 이기는 것을 볼 수 있다. 한 가지 재미있는 점은 morphological complexity에 따라 결과가 달라진다는 것이다. 체코어 같은 경우는 character-level model을 쓰는게 좋은 선택이지만, 프랑스어의 경우는 미비한 상승을 볼 수 있다.
 
 이 모델은 bi-LSTM encoder와 uni-LSTM decoder를 사용하였다. 가장 간단한 모델(x축: 1x2+2)은 bi-LSTM encoder(1x2) + 2-layers LSTM decoder(+2)를 사용했다.
 
@@ -282,7 +278,7 @@ l, o, w, e, r, n, w, s, t, i, d, es, est, lo, low, ne, new, newest, wi, wid, wid
 
 ## Wordpiece/Sentencepiece model
 
-구글의 NMT에선 BPE의 변형을 이용하였다. BPE랑 정확히 같은 알고리즘을 사용하기보단 살짝 수정하여 그들의 LM에다가 넣는 방식을 취했다. 이들은 단순하게 빈도수를 세는 것보단 LM의 perplexity를 가장 많이 감소시키는 (i.e. maximizing LM log likelihood) pair를 greedy하게 선정하여 넣는 방식을 취했다. 이에는 두 가지 버전이 있는데, 첫 번째는 **wordpiece model**이고 v2는 **sentencepiece model**이다.
+구글의 NMT에선 BPE를 살짝 수정하여 그들의 LM에다가 넣는 방식을 취했다. 이들은 BPE처럼 단순하게 빈도수를 세는 것이 아닌 LM의 perplexity를 가장 많이 감소시키는 (i.e. maximizing LM log likelihood) pair를 greedy하게 선정하여 넣는 방식을 취했다. 이에는 두 가지 버전이 있는데, 첫 번째는 **wordpiece model**이고 v2는 **sentencepiece model**이다.
 
 tokenization의 결과에 대해 sub-word model을 적용하게 되면, 모든 언어에 대해서 tokenizer가 필요하게 된다. 따라서 tokenizer를 쓰는 대신 whitespace를 special token인 _으로 바꾼 뒤, groupping 한다.
 
@@ -325,7 +321,6 @@ BERT의 경우 wordpiece model의 변형을 사용하였는데, 일반적인 단
 
 모델이 내놓는 representation을 살펴보면 흥미로운 것을 발견할 수 있는데, 만일 모델이 highway netowrk를 통과하지 않으면 character의 영향력이 짙게 남아있다. 따라서 character가 비슷한 애들끼리 similarity가 비슷해지게 된다. 반면, highway network를 통과하게 되면 semantic similarity를 잘 포착하게 된다.
 
-
 ![image](https://user-images.githubusercontent.com/47516855/99186302-bc223900-2792-11eb-917d-0619f2a3f29b.png)
 
 또한, OOV단어의 sematic도 잘 포착하는 것을 볼 수 있다. 이를 visualize하면 prefix, suffix, 심지어 하이픈까지도 word의 한 요소로서 잘 활용하고 있는 것을 볼 수 있다.
@@ -360,5 +355,3 @@ NMT는 beam serach를 사용하기 때문에, 이 구조에서도 beam search를
 다음과 같이 where라는 단어가 있을 때, 특정 n-gram을 통해서 이를 n-gram의 집합으로 나타낸다. 이는 앞서 말한 phoneme과도 같다. 이를 원래의 단어와 함께 묶어서 center word와 dot product를 계산하여 socring function을 계산한다. 이후로는 word2vec과 같다. 수업에서는 n-gram의 집합을 center word로 썼다고 하는데, 실제 논문에선 반대로 나와 있다.
 
 이렇게 모든 n-gram을 다 표현하게 되면 memory requirement가 커지므로, hashing trick을 쓸 수 있을 것이다.
-
-
