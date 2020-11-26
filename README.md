@@ -76,3 +76,18 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 18 | Constituency Parsing and Tree Recursive Neural Networks  | | O | **유인혁**  | 2020.12.02 |  Link |
 19 | Safety, Bias, and Fairness (guest lecture by Margaret Mitchell) | Recent Advances in Low Resource Machine Translation (guest lecture by Marc'Aurelio Ranzato) | X | **유인혁**  | 2020.12.09 |  Link |
 20 | Future of NLP + Deep Learning   | Analysis and Interpretability of Neural NLP | X | **장건희**  | 2020.12.09 |  Link |
+
+# 다음 회차 스터디 목록
+
+1. Paper
+   1. NLP paper (BERT 이후의)
+   2. paper (DL 전반적으로): distillation, annealing
+2. 강의 (기초)
+   1. ML: CS229 (PRML), 문일철 (KAIST)
+   2. DL: Deep Learning Book, CS231, 수업이 있나? 
+3. 자연어 실전 (한국어 셋) -> 형태소 분석도 못함 -> 기초선행(2)??
+   1. Competition (WMT, SQuAD)
+   2. Deploy (Open source)
+
+중 택1
+
