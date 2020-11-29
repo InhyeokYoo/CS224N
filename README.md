@@ -68,7 +68,7 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 10 | Question Answering and the Default Final Project | Question Answering, the Default Final Project, **and an introduction to Transformer architectures** | X | **최슬기**  | 2020.11.11 |  Link |
 11 | ConvNets for NLP |  | O | **최슬기**  | 2020.11.18 |  Link |
 12 | Information from parts of words: Subword Models | | O | **유인혁**  | 2020.11.18 |  [Link](/week6/Information-from-parts-of-words-Subword-Models.md) |
-13 | Modeling contexts of use: Contextual Representations and Pretraining | Contextual Word Representations: BERT (guest lecture by Jacob Devlin) | X | **유인혁**  | 2020.11.25 |  Link |
+13 | Modeling contexts of use: Contextual Representations and Pretraining | Contextual Word Representations: BERT (guest lecture by Jacob Devlin) | X | **유인혁**  | 2020.11.25 |  [Link](/week7/Modeling-contexts-of-use-Contextual-Representations-and-Pretraining.md) |
 14 | Transformers and Self-Attention For Generative Models | Modeling contexts of use: Contextual Representations and Pretraining. ELMo and BERT | X | **장건희**  | 2020.11.25 |  Link |
 15 | Natural Language Generation | | O | **장건희**  | 2020.12.02 |  Link |
 16 | Reference in Language and Coreference Resolution | | O | **최슬기**  | 2020.12.02 |  Link |
