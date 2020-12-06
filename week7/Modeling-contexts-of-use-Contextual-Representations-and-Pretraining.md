@@ -4,6 +4,7 @@
 - [바로가기](https://www.youtube.com/watch?v=S-CspeZ8FHc&feature=youtu.be)
 
 **Suggested readings**:
+
 - [Smith, Noah A. Contextual Word Representations: A Contextual Introduction. (Published just in time for this lecture!)](https://arxiv.org/pdf/1902.06006.pdf)
 - [The Illustrated BERT, ELMo, and co.](http://jalammar.github.io/illustrated-bert/)
 
@@ -54,7 +55,7 @@
 - 새롭게 등장하는 경우 그냥 random vector로 초기화해서 쓴 다음에 vocab에 추가한다
   - 이러면 각 단어가 unique identity를 갖게 되는 효과가 있다. 즉, question과 potential answer에서 같은 단어를 본다면, 이 둘이 완벽하게 match된다. UNK는 이러한 효과를 기대하기가 힘들다 
 
-전자의 경우 확실히 도움이 되는 방법이고, 후자는 큰 도움이 되지는 않는다. 또 시도할 수 있는 방법은 word classes로 collapsing하는 것이다. 이는 unknown number, capitalzed thing 등을 \<UNK-class>로 변환하는 것이다.
+전자의 경우 확실히 도움이 되는 방법이고, 후자는 큰 도움이 되지는 않는다. 또, 시도할 수 있는 방법은 word classes로 collapsing하는 것이다. 이는 unknown number, capitalzed thing 등을 \<UNK-class>로 변환하는 것이다.
 
 ## Representations for a word
 
@@ -63,7 +64,7 @@
 - word type에 대해서 같은 representation을 얻는다. 이는 context를 무시한다
 - 우리는 한 가지 표현만을 얻었다. 그러나 단어는 semantics, syntatic behavior, register/connotations 등을 포함하여 다른 **aspect**를 갖는다
 
-> Register: 언어학에서 사용역 (register)은 계층이나 연령, 지역, 문체 등에 따라 달리 나타나는 언어변이형의 하나이다. 일반어에 대해 전문어나 유아어, 지역 방언과 계층 방언, 속어 등이 이에 속한다.
+> Register: 언어학에서 사용역(register)은 계층이나 연령, 지역, 문체 등에 따라 달리 나타나는 언어변이형의 하나이다. 일반어에 대해 전문어나 유아어, 지역 방언과 계층 방언, 속어 등이 이에 속한다.
 
 > Connotation: A connotation is a commonly understood cultural or emotional association that some word or phrase carries, in addition to its explicit or literal meaning, which is its denotation.
 
@@ -98,7 +99,7 @@ Peters et al.은 [Semi-supervised sequence tagging with bidirectional language m
 
 여기서 중요한 사실은 bi-LSTM으로부터 얻은 representation이 매우 유용하다는 것이다. 그냥 supervised model에 이를 집어넣기만 했는데도 불구하고 word에 대해 더 나은 feature (meaning, context)를 제공한다.
 
-Language model은 Billion word benchmark셋에 있는 800M개의 단어로 학습하였다. Language model을 통해 관측한 것으로는 다음이 있다. 
+Language model은 Billion word benchmark셋에 있는 800M개의 단어로 학습하였다. Language model을 통해 관측한 것으로는 다음이 있다.
 
 - Supervised data로 학습한 LM은 도움이 되지 않음
   - *원문을 통해 확인한 결과 supervised set 자체의 문제보다는 데이터 크기의 영향으로 보임*
@@ -128,7 +129,7 @@ Context provider로 seq2seq + attention의 2-layers bi-LSTM을 사용, 다양한
   - 2048 n-gram filters, 2 highway layers, 512 dim projection
 - LSTM에서 4096 dim layer를 이용한 후, 512 dim projection을 사용하여 next input으로 사용
 - residual connection 이용
-- input token and softmax layer의 weight가 tie (share)
+- input token and softmax layer의 weight가 tie (share) => parameter tie regularization?
 
 ELMo는 biLM representation의 task-specific combination을 학습한다. 이는 이전의 LSTM의 top layer만 사용하던 방식보다 더 진보된 방식이다. 
 
@@ -152,7 +153,7 @@ Universal Language Model Fine-tuning for Text Classification (ULMfit)은 ELMo랑
 
 <img src="https://user-images.githubusercontent.com/47516855/100495087-5919a480-318b-11eb-8cc1-57c15946886a.png" alt="image" style="zoom:67%;" />
 
-이들은 big general domain corpus (unsupervised)에 대해 LM을 학습하고 (biLM), target task data에 대해 tuning을 진행한다. 그리고 target task에 대해 fine-tune을 진행한다. 그러나 한 가지 특이한 점이 있는데, 그냥 단순히 LM feature를 다른 네트워크에서 사용하는 것이 아니라, 네트워크 구조는 유지하되 맨 윗단에 다른 objective를 붙였다. 이는 transformer을 사용하는 연구에도 영향을 미치게 되었다. 이는 맨 위에 있는 softmax parameter를 고정시키고 (그림 c의 black box),  대신에 다른 prediction unit을 붙여 수행할 수 있다.
+이들은 big general domain corpus (unsupervised)에 대해 LM을 학습하고 (biLM), target task data에 대해 tuning을 진행한다. 그리고 target task에 대해 fine-tune을 진행한다. 그러나 한 가지 특이한 점이 있는데, 그냥 단순히 LM feature를 다른 네트워크에서 사용하는 것이 아니라, 네트워크 구조는 유지하되 맨 윗단에 다른 objective를 붙였다. 이는 transformer을 사용하는 연구에도 영향을 미치게 되었다. 이는 맨 위에 있는 softmax parameter를 고정시키고 (그림 c의 black box),  대신에 다른 prediction unit을 붙여 수행할 수 있다. 
 
 <img src="https://user-images.githubusercontent.com/47516855/100496570-7608a480-3198-11eb-9a52-5f8616f0ead8.png" alt="image" style="zoom: 67%;" />
 
@@ -187,13 +188,13 @@ ULMfit은 하나의 GPU로 학습할 수 있을만큼 크지 않다. 또한, 논
 
 트랜스포머의 motivation은 모델을 **더 빨리** 학습시켜 더 큰 모델을 만드는 것에 있다. RNN 계열의 아키텍처는 recurrent한 속성이 있기 때문에 parallel한 연산을 수행할 수가 없다. 그럼에도 불구하고 이러한 구조는 반드시 필요한데, **long sequence length** 문제를 해결할 수 있는 건 attention mechanism이기 때문이다. Attention이 하는 일은 어떠한 state에도 접근할 수 있게 하는 것이고, 이것만 따로 구현할 수 있다면 RNN 구조에서 벗어날 수 있을 것이다. 이러한 아이디어가 바로 transformer의 탄생 배경이 된다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100516335-90f20d80-31c6-11eb-95a0-c7202e4d3ba7.png" alt="image" style="zoom:67%;" />
+<img src="https://user-images.githubusercontent.com/47516855/100516335-90f20d80-31c6-11eb-95a0-c7202e4d3ba7.png" alt="image" style="zoom: 80%;" />
 
 [Attention is all you need. 2017. Aswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin](https://arxiv.org/pdf/1706.03762.pdf)
 
 Transformer구조는 attention은 유지하되 recurrent는 벗어나는 형태를 취하고 있다. 이 구조는 machine translation을 위해 제안되었는데, 복잡한 encoder/decoder를 갖고, 많은 attention distribution을 만들어서 이를 수행한다.
 
-Transformer는 모든 곳에 attention을 거는데, 여러 attention 중에 가장 간단한 형태인 dot-product를 사용한다. Input으로 query와 ke-value 쌍을 받아 query와 key간의 similarity를 계산하고, 이에 대응하는 value와의 attention을 계산한다. 이 결과로 value의 weighted sum (query-key)형태로 output이 나오게 된다.
+Transformer는 모든 곳에 attention을 거는데, 여러 attention 중에 가장 간단한 형태인 dot-product를 사용한다. Input으로 query와 key-value 쌍을 받아 query와 key간의 similarity를 계산하고, 이에 대응하는 value와의 attention을 계산한다. 이 결과로 value의 weighted sum (query-key)형태로 output이 나오게 된다.
 
 <img src="https://user-images.githubusercontent.com/47516855/100519968-98bdac00-31de-11eb-9115-089d6216b336.png" alt="image" style="zoom:67%;" />
 
@@ -251,8 +252,6 @@ multi-head attention의 결과는 이후 input vector와의 residual을 통해 �
 
 한 가지 흥미로운 점은 이 모델이 언어 구조에서 흥미로운 것을 잘 attend한다는 것이다. 다음 그림을 보면 making이 more과 difficult를 attend하는데, 이는 argument와 modifier임을 확인할 수 있다.
 
- 
-
 <img src="https://user-images.githubusercontent.com/47516855/100523496-3b345a00-31f4-11eb-8c7d-08183af60861.png" alt="image" style="zoom:67%;" />
 
 또한, pronoun의 경우 이의 modifier(application) 뿐만 아니라 reference에 attend하는 것을 볼 수 있다.
@@ -294,9 +293,7 @@ Transformer 구조를 이용한 GPT같은 경우에는 traditional language mode
 
 <img src="https://user-images.githubusercontent.com/47516855/100524309-615cf880-31fa-11eb-9513-f7833987f02a.png" alt="image" style="zoom:67%;" />
 
-그 후 pre-trained model 위에 fine-tuning head를 붙여 작업을 수행하게 된다. 이는 앞서 설명했던 ULMfit처럼 모델의 구조를 그대로 유지할 수 있다는 장점을 갖는다. 
-
-<img src="C:\Users\mkult\AppData\Roaming\Typora\typora-user-images\image-20201129043319495.png" alt="image-20201129043319495" style="zoom: 80%;" />
+그 후 pre-trained model 위에 fine-tuning head를 붙여 작업을 수행하게 된다. 이는 앞서 설명했던 ULMfit처럼 모델의 구조를 그대로 유지할 수 있다는 장점을 갖는다.<img src="C:\Users\mkult\AppData\Roaming\Typora\typora-user-images\image-20201129043319495.png" alt="image-20201129043319495" style="zoom: 80%;" />
 
 이후로는 모델 performance에 대해 설명하고 있으므로 패스.
 
