@@ -31,7 +31,7 @@
 
 다음표는 2012년 ACL tutorial에서 Manning교수가 발표했던 내용으로, POS tagging과 NER에 대한 결과이다. 맨 윗줄은 2000년대에 traditional categorical feature based classifier를 통해 달성한 SOTA이다. 보다시피 NN을 쓰는게 그렇게 좋은 생각은 아니었다. 따라서 2000년대에는 CRF라던가 SVM같은게 더 유행했었다. 그러다가 떠오른 것이 바로 unsupervised pre-training word vector를 사용하는 것이었다. 무려 130,000 word-embedding이 Wikipedia/Reuters data를 통해 학습됐고, window size는 11, 차원은 100이다. 이는 학습하는데 무려 7주나 걸렸다고 한다. 이로 인한 NER 결과는 거의 feature-based classifier와 비슷한 성과를 달성하게 되었다.
 
-<img src="https://user-images.githubusercontent.com/47516855/99881474-63a0df00-2c5d-11eb-82e5-ab1619f05a4d.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/99881474-63a0df00-2c5d-11eb-82e5-ab1619f05a4d.png)
 
 2014-2018년 경에는 이와는 다른 양상을 보이기 시작했다. 바로 random initialization을 쓰는 것이다. 다음 그림은 앞서 보았던 dependancy parser (Chen and Manning)에서 나온 것인데, 이는 상당히 작은 corpus에서 학습했음에도 불구하고, approximation이 꽤나 괜찮은 성능을 보였다. 
 
@@ -88,7 +88,7 @@ Peters et al.은 [Semi-supervised sequence tagging with bidirectional language m
 
 다음은 이를 더 자세히 묘사한 그림이다.
 
-<img src="https://user-images.githubusercontent.com/47516855/99897332-e799ac00-2cdb-11eb-99ce-80c059a5d3fb.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/99897332-e799ac00-2cdb-11eb-99ce-80c059a5d3fb.png)
 
 - 대량의 unsupervised data를 통해 bi-LSTM LM을 학습시킨 다음 (파랑색 박스) forward/backward representation을 concatenation하여 LM representation을 얻는다.
 - word embedding은 두 가지를 concat하는데,
@@ -133,7 +133,7 @@ Context provider로 seq2seq + attention의 2-layers bi-LSTM을 사용, 다양한
 
 ELMo는 biLM representation의 task-specific combination을 학습한다. 이는 이전의 LSTM의 top layer만 사용하던 방식보다 더 진보된 방식이다. 
 
-<img src="https://user-images.githubusercontent.com/47516855/99899133-32222500-2cea-11eb-82c5-82b6001dad34.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/99899133-32222500-2cea-11eb-82c5-82b6001dad34.png)
 
 이후에 이를 사용할 때는 다음과 같이 한다.
 
@@ -151,11 +151,11 @@ ELMo는 biLM representation의 task-specific combination을 학습한다. 이는
 
 Universal Language Model Fine-tuning for Text Classification (ULMfit)은 ELMo랑 비슷하게 2018년 경에 나온 논문이다. ULMfit은 big language model을 학습하고 target task에 대해 transfer learning을 진행하는 것이다.  
 
-<img src="https://user-images.githubusercontent.com/47516855/100495087-5919a480-318b-11eb-8cc1-57c15946886a.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100495087-5919a480-318b-11eb-8cc1-57c15946886a.png)
 
 이들은 big general domain corpus (unsupervised)에 대해 LM을 학습하고 (biLM), target task data에 대해 tuning을 진행한다. 그리고 target task에 대해 fine-tune을 진행한다. 그러나 한 가지 특이한 점이 있는데, 그냥 단순히 LM feature를 다른 네트워크에서 사용하는 것이 아니라, 네트워크 구조는 유지하되 맨 윗단에 다른 objective를 붙였다. 이는 transformer을 사용하는 연구에도 영향을 미치게 되었다. 이는 맨 위에 있는 softmax parameter를 고정시키고 (그림 c의 black box),  대신에 다른 prediction unit을 붙여 수행할 수 있다. 
 
-<img src="https://user-images.githubusercontent.com/47516855/100496570-7608a480-3198-11eb-9a52-5f8616f0ead8.png" alt="image" style="zoom: 67%;" />
+![](https://user-images.githubusercontent.com/47516855/100496570-7608a480-3198-11eb-9a52-5f8616f0ead8.png)
 
 > 이 부분에서 살을 좀 더 붙여보면, 대부분의 모델들은 embedding 시에 이러한 pre-trained model을 활용하긴 했지만 중간 레이어들은 여전히 randomly initializing을 사용했다. pre-trained 모델을 사용하는 것이 일종의 transfer learning이기는 해도, 부분적인 적용일 뿐 중간 레이어에 이를 연결하는 방법에 대해서는 연구된 바가 없었다. 출처: [전이 학습 기반 NLP (2): ULMFiT](https://brunch.co.kr/@learning/13)
 
@@ -174,21 +174,21 @@ ULMfit은 하나의 GPU로 학습할 수 있을만큼 크지 않다. 또한, 논
 
 다음 그림은 성능을 비교한 그래프인데, supervised data로부터 좋은 성능을 내기 위해서는 엄청나게 많은 데이터가 필요하게 된다 (파랑색). 만일 unsupervised pre-trained data를 활용하여 transfer learning을 하게 된다면, scratch부터 학습한 것보다 훨씬 더 적은 데이터로도 비슷한 성능을 낼 수 있다 (주황색). 또한, target domain extra fine-tuning 또한 매우 효과적인 것으로 드러났다 (초록색)
 
-<img src="https://user-images.githubusercontent.com/47516855/100499258-66df2200-31ab-11eb-889b-065ab150f5fd.png" alt="image" style="zoom: 67%;" />
+![](https://user-images.githubusercontent.com/47516855/100499258-66df2200-31ab-11eb-889b-065ab150f5fd.png)
 
 이러한 pre-trained model의 효율성을 깨달은 연구자들은 점차 모델의 사이즈를 늘려나가기 시작했다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100505906-436aa600-31b0-11eb-94d0-4a67bb7b686f.png" alt="image" style="zoom: 67%;" />
+![](https://user-images.githubusercontent.com/47516855/100505906-436aa600-31b0-11eb-94d0-4a67bb7b686f.png)
 
 이 중 맨 왼쪽의 ULMfit을 제외한 나머지 모델은 transformer 기반의 모델들로, 효율적일 뿐만 아니라 훨씬 큰 사이즈로 scailing까지 가능한 구조이다. 이에 대한 이해를 돕기 위해 transformer를 살펴보자.
 
-<img src="https://user-images.githubusercontent.com/47516855/100510647-b0cb0680-31b1-11eb-87ff-745d017b0a17.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100510647-b0cb0680-31b1-11eb-87ff-745d017b0a17.png)
 
 # 4 Transformer architectures 
 
 트랜스포머의 motivation은 모델을 **더 빨리** 학습시켜 더 큰 모델을 만드는 것에 있다. RNN 계열의 아키텍처는 recurrent한 속성이 있기 때문에 parallel한 연산을 수행할 수가 없다. 그럼에도 불구하고 이러한 구조는 반드시 필요한데, **long sequence length** 문제를 해결할 수 있는 건 attention mechanism이기 때문이다. Attention이 하는 일은 어떠한 state에도 접근할 수 있게 하는 것이고, 이것만 따로 구현할 수 있다면 RNN 구조에서 벗어날 수 있을 것이다. 이러한 아이디어가 바로 transformer의 탄생 배경이 된다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100516335-90f20d80-31c6-11eb-95a0-c7202e4d3ba7.png" alt="image" style="zoom: 80%;" />
+![](https://user-images.githubusercontent.com/47516855/100516335-90f20d80-31c6-11eb-95a0-c7202e4d3ba7.png)
 
 [Attention is all you need. 2017. Aswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin](https://arxiv.org/pdf/1706.03762.pdf)
 
@@ -196,7 +196,7 @@ Transformer구조는 attention은 유지하되 recurrent는 벗어나는 형태�
 
 Transformer는 모든 곳에 attention을 거는데, 여러 attention 중에 가장 간단한 형태인 dot-product를 사용한다. Input으로 query와 key-value 쌍을 받아 query와 key간의 similarity를 계산하고, 이에 대응하는 value와의 attention을 계산한다. 이 결과로 value의 weighted sum (query-key)형태로 output이 나오게 된다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100519968-98bdac00-31de-11eb-9115-089d6216b336.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100519968-98bdac00-31de-11eb-9115-089d6216b336.png)
 
 만일 key의 dimension d_k가 커지게 된다면, q와 k의 dot product의 값이 커질 것이고, 이로 인해 softmax내의 값이 커지는 효과가 일어난다 (high variance). 따라서 softmax을 통한 gradient가 매우 작아지게 되므로 학습이 잘 안되는 효과가 일어난다. 이를 방지하기 위해 sqrt(d_k)로 나눠준다.
 
@@ -206,7 +206,7 @@ Transformer는 모든 곳에 attention을 거는데, 여러 attention 중에 가
 >
 > <img src="https://render.githubusercontent.com/render/math?math=\text{var}(q^Tk) = \text{var}(\sum u_i v_i) =  k\text{var}(x_1y_1) = k\text{E}[x_1^2][y_1^2]=k\sigma^4">
 
-<img src="https://user-images.githubusercontent.com/47516855/100520102-6f515000-31df-11eb-97b2-5e77e219e872.png" alt="image" style="zoom: 80%;" />
+![](https://user-images.githubusercontent.com/47516855/100520102-6f515000-31df-11eb-97b2-5e77e219e872.png)
 
 > softmax with small gradient에 대한 추가 설명:
 >
@@ -242,7 +242,7 @@ Transformer는 모든 곳에 attention을 거는데, 여러 attention 중에 가
 
 또 다른 중요한 점으로는 multi-head attention이 있다. 만일 하나의 attention만 사용하게 될 경우 우리는 한 가지 방법으로만 **attend**하게 된다. 예를 들어 dependency parser를 구축한다고 생각해보자. 우리는 headword도 파악해야 하지만, 이의 dependent word도 파악해야 할 것이다. 따라서 multi-head attention을 도입하여 attend를 다양한 측면에서 하도록 구성한다. 
 
-<img src="https://miro.medium.com/max/437/1*5h3HHJh7kgezyOdTcRZc0A.png" style="zoom:67%;" />
+![](https://miro.medium.com/max/437/1*5h3HHJh7kgezyOdTcRZc0A.png)
 
 multi-head attention의 결과는 이후 input vector와의 residual을 통해 합쳐지고, layer normalization을 수행한다. 이후 2개의 FC와 ReLU를 통과하고 앞서 해주었던 Add & Norm을 수행하게 된다.
 
@@ -252,15 +252,15 @@ multi-head attention의 결과는 이후 input vector와의 residual을 통해 �
 
 한 가지 흥미로운 점은 이 모델이 언어 구조에서 흥미로운 것을 잘 attend한다는 것이다. 다음 그림을 보면 making이 more과 difficult를 attend하는데, 이는 argument와 modifier임을 확인할 수 있다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100523496-3b345a00-31f4-11eb-8c7d-08183af60861.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100523496-3b345a00-31f4-11eb-8c7d-08183af60861.png)
 
 또한, pronoun의 경우 이의 modifier(application) 뿐만 아니라 reference에 attend하는 것을 볼 수 있다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100523574-d6c5ca80-31f4-11eb-91fe-95080d518ebd.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100523574-d6c5ca80-31f4-11eb-91fe-95080d518ebd.png)
 
 이후에는 decoding을 수행하게 된다. 강의에서는 그냥 넘어감으로 간단하게만 설명해보면, 디코더에서는 sub-sequence를 봐선 안되므로 (즉, 한국어를 받아서 영어를 해석해야 하는데, sub-sequence를 본다는 것은 도착어가 무엇인지를 이미 안 다는 뜻이나 다름없다) 이에 대해 masking을 씌어주고 이후 단어가 아닌 이전 단어들에만 attend하게 한다. 그리고 encoder (key, value)와 decoder (query)의 attention을 통해 translation과정에서 어떠한 source attention에 attend해야 하는지를 파악하게 된다.
 
-<img src="https://user-images.githubusercontent.com/47516855/100523686-bfd3a800-31f5-11eb-94aa-1ea70384e532.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100523686-bfd3a800-31f5-11eb-94aa-1ea70384e532.png)
 
 Details (in paper and/or later lectures):
 
@@ -279,21 +279,23 @@ Use of transformers is spreading but they are hard to optimize and unlike LSTMs 
 
 BERT는 가장 최근에 (현재는 GPT-3) 개발됐으면서 가장 좋은 성능을 보이고 있는 모델이다. 이는 트랜스포머의 인코더만을 이용하는 모델로 모든 task 기록을 갈아치우며 SOTA가 됐다. 여기에는 새롭고 흥미로운 아이디어가 있는데, 전통적인 LM은 unidirectional이고 잘 작동하긴 하지만, 양쪽 방향에서 보는 bi-directional이 제공하는 contexct와 meaning이 없다는 단점이 있다. 그렇지만 bi-directional하면 단어가 자기 자신을 참고하는 **crosstalk**문제가 발생한다. 
 
-<img src="https://user-images.githubusercontent.com/47516855/100523993-df6bd000-31f7-11eb-81e9-b8151133d8ae.png" alt="image" style="zoom: 80%;" />
+![](https://user-images.githubusercontent.com/47516855/100523993-df6bd000-31f7-11eb-81e9-b8151133d8ae.png)
 
 BERT는 단어에 **mask**를 씌우는 방법으로 이를 해결했다. 예를 들어 *the man went to the store to buy a gallon of milk*가 있을 때, 이를 *the man went to the [MASK] to buy a [MASK] of milk* 로 masking하여 단어를 예측하게 하는 것이다. 이렇게 되면 crosstalk가 일어나지 않게 된다. 이러면 이 language model은 더 이상 sentence의 확률을 생성하는 모델이 아니게 되고, 그냥 단순히 빈칸 채우기가 된다. mask를 씌우는 비율은 trade-off인데, 15%로 논문에선 설정했다. 너무 크면 computationally expensive하고, 너무 작으면 context를 잘 이해하지 못한다.
 
 Transformer 구조를 이용한 GPT같은 경우에는 traditional language model이고, ELMo의 경우엔 일종의 bidirectional language model이라고 볼 수 있다. 다만, 이 둘은 따로 학습이 되고, 나중에 concatenation한다. BERT는 이 둘의 장점을 고스란히 살렸고, 덕분에 좋은 결과를 얻었다.
 
-<img src="C:\Users\mkult\AppData\Roaming\Typora\typora-user-images\image-20201129041616545.png" alt="image-20201129041616545" style="zoom:67%;" />
+![image](https://user-images.githubusercontent.com/47516855/101906779-df5acf80-3bfc-11eb-81b4-23b867e5945a.png)
 
 또한, next sentence prediction (NSP)를 도입하였는데, 문장 두 개를 준 뒤 뒤의 문장이 실제로 연결되는 문장인지, 아닌지를 파악하는 작업을 모델이 학습하게 했다. 이는 도움이 되긴 하지만 필수적인 작업은 아니다. 이러한 작업은 QA, NLI 같은 문제에서 유용하다.
 
 다음 그림은 embedding 과정을 시각화 한 것이다. 각 각의 단어에 대해 총 세 개의 임베딩을 합치게 되는데, 하나는 토큰 임베딩 (노란색), 하나는 포지셔널 임베딩 (흰색), 그리고 앞서 설명한 NSP를 위해 문장을 구분해주는 segment embedding이 있다. 
 
-<img src="https://user-images.githubusercontent.com/47516855/100524309-615cf880-31fa-11eb-9513-f7833987f02a.png" alt="image" style="zoom:67%;" />
+![](https://user-images.githubusercontent.com/47516855/100524309-615cf880-31fa-11eb-9513-f7833987f02a.png)
 
-그 후 pre-trained model 위에 fine-tuning head를 붙여 작업을 수행하게 된다. 이는 앞서 설명했던 ULMfit처럼 모델의 구조를 그대로 유지할 수 있다는 장점을 갖는다.<img src="C:\Users\mkult\AppData\Roaming\Typora\typora-user-images\image-20201129043319495.png" alt="image-20201129043319495" style="zoom: 80%;" />
+그 후 pre-trained model 위에 fine-tuning head를 붙여 작업을 수행하게 된다. 이는 앞서 설명했던 ULMfit처럼 모델의 구조를 그대로 유지할 수 있다는 장점을 갖는다.
+
+![image](https://user-images.githubusercontent.com/47516855/101907559-11b8fc80-3bfe-11eb-8865-37c89a892c54.png)
 
 이후로는 모델 performance에 대해 설명하고 있으므로 패스.
 
