@@ -41,11 +41,11 @@
 
 # Consitituency Parsing
 
-이는 슬라이드에는 없고 강의 note에만 있는 내용이라 옮겨서 적어본다. NLU는 큰 text units으로부터 의미를 뽑아내는 작업이 필요하다. 이는 더 작은 부품을 이해하는 거세서 출발한다. 문장의 syntatic strucutre를 분석하는 방법은 두 가지가 있는데, 이는 앞서 배웠던 **dependency parsing** (lecture4)과 **constituency parsing**이다.
+이는 슬라이드에는 없고 강의 note에만 있는 내용이라 옮겨서 적어본다. NLU는 큰 text units으로부터 의미를 뽑아내는 작업이 필요하다. 이는 더 작은 부품을 이해하는 것에서 출발한다. 문장의 syntatic strucutre를 분석하는 방법은 두 가지가 있는데, 이는 앞서 배웠던 **dependency parsing** (lecture4)과 **constituency parsing**이다.
 
 dependency parsing은 단어와 이의 dependent 간의 비대칭적 binary relation(화살표)을 만들어서 단어가 어떤 단어에 종속하는지를 파악할 수 있다.
 
-constituency parsing (=phrase structure parsing)은 단어를 nested constituent로 만든다. 이는 piece of text (e.g. one sentence)를 sub-phrase로 나누는 작업이다. 이의 목표는 text에서 정보를 뽑아낼 때 유용한 contituent를 파악하는 것이다. parsing을 통해 constituent를 파악하면, 문법적으로 올바르면서 비슷한 문장을 생성해낼 수 있다.
+constituency parsing (=phrase structure parsing,  context free grammar)은 단어를 nested constituent로 만든다. 이는 piece of text (e.g. one sentence)를 sub-phrase로 나누는 작업이다. 이의 목표는 text에서 정보를 뽑아낼 때 유용한 contituent를 파악하는 것이다. parsing을 통해 constituent를 파악하면, 문법적으로 올바르면서 비슷한 문장을 생성해낼 수 있다.
 
 ## Constituent
 
@@ -55,14 +55,14 @@ syntactic analysis (also referred to as syntax analysis or parsing)에서 consti
 - *I want to be enrolled in the wonderful CS224N!*
 여기서 phrase를 한 번 옮겨보자
 - *The wonderful CS224N I want to be enrolled in!*
-여전히 같은 뜻일 내포하고 있음을 알 수 있다. 또한 phrase는 대체할 수 있다고 말했다. 가령 *great CS course in Stanford about NLPand Deep Learning*로 대체한다고 해보자.
+여전히 같은 뜻일 내포하고 있음을 알 수 있다. 또한 phrase는 대체할 수 있다고 말했다. 가령 *great CS course in Stanford about NLP and Deep Learning*로 대체한다고 해보자.
 - *I want to be enrolled in the great CS course in Stanford about NLP and Deep Learning!*
 여전히 동일한 뜻을 갖고 있고, 문법적으로도 문제가 없는 것을 볼 수 있다.
 
 constituent parsing에서 기본적인 cluase structure는 binary division으로 clause를 subject (noun phrase NP)와 predicate (verb phrase VP)로 나누는 것을 의미한다. Binary division의 결과는 one-to-one/more mapping이 된다. 문장 내 각 element에 대해, tree structure에는 하나 이상의 node가 존재한다.
-- S -> NP VP
+- S -> NP, VP
 실제로 parsing process는 특정 유사한 규칙을 보여준다. 문장 기호 S로 시작하여 phrase structure 규칙을 연속적으로 적용하고, 추상 기호를 실제 단어로 대체하여 규칙을 추론한다. 이와 같이 추출 된 규칙을 기반으로 유사한 문장을 생성 할 수 있다. 규칙이 정확하다면 이 방법으로 생성 된 모든 문장은 문법적으로 옳아야 한다. 그러나 이런 문장이 문법적으로 옳다고 해도, semnatically nosensical할 수도 있다.
-- Colorless green ideas sleep furiously
+- **Colorless green ideas sleep furiously**
 이는 노엄 촘스키가 저서 Syntactic Structures에서 고안한 문장이다. 아무리 문법적으로 옳더라도, 문맥적으로 말이 되지 않으면 문장이 아님을 말하기 위해 본 문장을 고안했다.
 
 ## Constituecy Parse Tree
@@ -112,7 +112,13 @@ Noun phrase안에는 또 다른 noun phrase가 있고, 그 안에는 또 다른 
 
 ![image](https://user-images.githubusercontent.com/47516855/102006643-ce799d80-3d65-11eb-843d-d7d6b0c4b32b.png)
 
-constituent의 의미적 유사도를 찾아내기 위해서는 단순히 word 뿐만 아니라 이러한 constituent에도 의미를 부여해야 한다. 예를 들면 ”I went to the mall yesterday”, ”We went shoppinglast week”, ”They went to the store”와 같은 phrase를 표현하는 것이라 생각해보자. 이 셋은 비슷한 뜻을 갖고 있으니 가까운 거리를 갖아야 한다. 이를 표현하는 방법은 word vector들의 composition을 통해 phrase vector를 output하는 것이다. 이 결과 output은 word vector space와 동일한 space에 있게 된다. 그렇다면 phrase를 어떻게 vector space로 mapping할까?
+constituent의 의미적 유사도를 찾아내기 위해서는 단순히 word 뿐만 아니라 이러한 constituent에도 의미를 부여해야 한다. 예를 들면 
+
+- ”I went to the mall yesterday”
+- ”We went shopping last week”, 
+- ”They went to the store”
+
+와 같은 phrase를 표현하는 것이라 생각해보자. 이 셋은 비슷한 뜻을 갖고 있으니 가까운 거리를 갖아야 한다. 이를 표현하는 방법은 word vector들의 composition을 통해 phrase vector를 output하는 것이다. 이 결과 output은 word vector space와 동일한 space에 있게 된다. 그렇다면 phrase를 어떻게 vector space로 mapping할까?
 
 principle of compositionality는 문장의 뜻(vector)이 안의 단어들의 뜻과 이를 조합하는 방식에 따라 결정하는 것이다.
 
@@ -168,8 +174,7 @@ RNN의 가장 밑단에는 word vector가 있고, 이를 재귀적으로 반복�
 
 ## Version 2: Syntactically-Untied RNN (Socher, Bauer, Manning, Ng 2013)
 
-앞서 봤던 TreeRNN과 유사하면서 context-free style constituency parsing를 잘하는 parser를 보자. 이는 parsing이 greedy해지는 것과는 거리가 있는 방법이다. 
-앞서 보았던 symbolic grammar가 sentence를 위한 트리 구조로는 적합하다. 그러나 문제는 문장의 의미를 계산하는 더 좋은 방법이 많이 있다.
+앞서 봤던 TreeRNN과 유사하면서 context-free style constituency parsing를 잘하는 parser를 보자. 이는 parsing이 greedy해지는 것과는 거리가 있는 방법이다. 앞서 보았던 symbolic grammar가 sentence를 위한 트리 구조로는 적합하다. 그러나 문제는 문장의 의미를 계산하는 더 좋은 방법이 많이 있다.
 
 따라서 Probabilistic Context Free Grammar를 이용하여 가능한 tree structure를 구상하고, K-best list를 뽑은 후에 이 중에서 제일 좋은 CFG가 무엇인지를 고르는 것이다. 이는 다이나믹 프로그래밍을 통해 효율적으로 계산할 수 있다. 이후 neural net을 통해 meaning representation을 계산할 수 있다. 
 
@@ -177,7 +182,7 @@ RNN의 가장 밑단에는 word vector가 있고, 이를 재귀적으로 반복�
 
 ![image](https://user-images.githubusercontent.com/47516855/102016389-069fd100-3da4-11eb-82e6-b0b9a78f89e3.png)
 
-그러나 Beam search 내 candidate score에 대해 전부 matrix-vector product를 수행해줘야 해서 너무 느리다는 문제가 있다. 따라서 앞서 말했듯 PCFG를 사용하여 가장 그럴듯한 parser를 찾는다. 이러한 PCFG와 tree RNN이 합쳐진 구조를 **compositional vector grammar**라 부른다.
+그러나 Beam search 내 candidate score에 대해 전부 matrix-vector product를 수행해줘야 해서 너무 느리다는 문제가 있다. 따라서 앞서 말했듯 PCFG를 사용하여 가장 그럴듯한 parser를 찾는다. 이러한 PCFG와 tree RNN이 합쳐진 구조를 **Compositional Vector Grammar**라 부른다.
 
 ## Related Work for parsing
 
@@ -290,7 +295,7 @@ sentence label에 대해서는 딱히 좋은 성능은 아니지만, Treebank �
 
 이러한 아이디어는 흥미롭고, 언어학과 연관이 깊다. 그러나 여러 이유로 이러한 아이디어는 NLP에서 많이 활용되지 않았다. 이는 high dimensional vector를 활용하는 다양한 모델들이 좋은 성능을 내고 있고, GPU는 uniform computation 환경에서 더 좋은 성능을 낸다. LSTM이나 CNN 등인 determinant computation이기 때문에 GPU 친화적이다. 그러나 RNN은 sentence마다 다른 구조를 갖고 있기 때문에 batch화 할 수 있는 방법이 없다.
 
-## Version 5:Improving Deep Learning Semantic Representations using a TreeLSTM
+## Version 5: Improving Deep Learning Semantic Representations using a TreeLSTM
 
 이 부분은 slide에는 있는데 강의에는 없다.
 
