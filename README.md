@@ -73,8 +73,8 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 15 | Natural Language Generation | | O | **장건희**  | 2020.12.02 |  Link |
 16 | Reference in Language and Coreference Resolution | | O | **최슬기**  | 2020.12.02 |  Link |
 17 | Multitask Learning: A general model for NLP? (guest lecture by Richard Socher) | Fairness and Inclusion in AI (guest lecture by Vinodkumar Prabhakaran) | X | **최슬기**  | 2020.12.09 |  Link |
-18 | Constituency Parsing and Tree Recursive Neural Networks  | | O | **유인혁**  | 2020.12.09 |  [Link](Tree-Recursive-Neural-Networks-Constituency-Parsing-and-Sentiment.md) |
-19 | Safety, Bias, and Fairness (guest lecture by Margaret Mitchell) | Recent Advances in Low Resource Machine Translation (guest lecture by Marc'Aurelio Ranzato) | X | **유인혁**  | 2020.12.16 |  Link |
+18 | Constituency Parsing and Tree Recursive Neural Networks  | | O | **유인혁**  | 2020.12.09 |  [Link](/week9/Tree-Recursive-Neural-Networks-Constituency-Parsing-and-Sentiment.md) |
+19 | Safety, Bias, and Fairness (guest lecture by Margaret Mitchell) | Recent Advances in Low Resource Machine Translation (guest lecture by Marc'Aurelio Ranzato) | X | **유인혁**  | 2020.12.16 |  [Link](/week10/Safety-Bias-and-Fairness.pdf) |
 20 | Future of NLP + Deep Learning   | Analysis and Interpretability of Neural NLP | X | **장건희**  | 2020.12.16 |  Link |
 
 # 다음 회차 스터디 목록
@@ -88,6 +88,3 @@ CS224N 스터디의 학습내용 정리와 issue공유를 위한 repo입니다.
 3. 자연어 실전 (한국어 셋) -> 형태소 분석도 못함 -> 기초선행(2)??
    1. Competition (WMT, SQuAD)
    2. Deploy (Open source)
-
-중 택1
-
