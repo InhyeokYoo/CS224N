@@ -79,8 +79,15 @@ ReLU (max(z,0)
 
 데이터를 상관관계가 없고 분산을 1로 만드는 것
 
+## Learning Strategies 
+
+1. Annealing(담금질)
+Deep neural networks에서 시간에 따라 learning rate를 조정하는것
+- Step decay: epoch 마다 일정량만큼 learning rate를 줄이는 것
+- Exponential decay: ![image](https://user-images.githubusercontent.com/34912004/96832965-98f9b780-147a-11eb-940b-d0bc61f8f78c.png)
+- 1/t 감소: ![image](https://user-images.githubusercontent.com/34912004/96832997-a9119700-147a-11eb-91da-38dd4fe405f3.png)
+* a0, k = 하이퍼파라미터, t = 반복 횟수
 
 ## Optimizer 비교
 
 ![image](https://user-images.githubusercontent.com/34912004/96590824-71430c00-1321-11eb-9fc8-c592feece477.png)
-
